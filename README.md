@@ -25,13 +25,17 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [ ] Describe the game's purpose. 
+This game is a Streamlit number-guessing challenge where the player chooses a difficulty, tries to guess a hidden number within limited attempts, and gets directional hints plus score updates after each guess.
+- [ ] Detail which bugs you found.Hint direction bug: when a guess was too high, the game told the player to go higher, and vice versa. Difficulty inconsistency: Hard had fewer attempts but a narrower range than Normal, which made the difficulty design contradictory.Attempts counter bug (identified): attempts start/count logic is off by one, so the game can report out-of-attempts earlier than expected.
+- [ ] Explain what fixes you applied.Refactored shared game logic into logic_utils.py and imported it into app.py. Corrected hint messages so:
+Too High -> Go LOWER
+Too Low -> Go HIGHER. Corrected difficulty scaling so Hard uses a wider range than Normal. Added #FIX comments at change points as requested. Updated tests to validate both outcome labels and hint text directions.
 
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+![Screenshot](screen.png)
 
 ## 🚀 Stretch Features
 
